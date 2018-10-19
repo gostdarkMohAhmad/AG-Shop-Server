@@ -28,4 +28,9 @@ client.user.setGame(`AG Shop`,"http://twitch.tv/S-F")
   console.log('')
 });
  
+client.on('message', message => {
+let args = message.content.split(' ').slice(1);
+if(message.content.startsWith(prefix + 'bc')) {
+    message.guild.members.forEach(member => {member.send(args.join(' '))});
+});
 client.login(process.env.BOT_TOKEN);
